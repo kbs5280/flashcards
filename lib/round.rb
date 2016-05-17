@@ -1,6 +1,7 @@
 class Round
   attr_reader :deck,
-              :guesses
+              :guesses,
+              :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -8,26 +9,49 @@ class Round
     @number_correct = 0
   end
 
-  def current_card
-    deck.cards.first
+  def start
+    puts "Welcome! You're playing with #{@deck.count} cards."
+    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
+    puts "Question: #{deck.cards[guess_count].question}"
+    guess = gets.chomp
+    record_guess(guess)
+    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
+    puts "Question: #{deck.cards[guess_count].question}"
+    guess = gets.chomp
+    record_guess(guess)
+    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
+    puts "Question: #{deck.cards[guess_count].question}"
+    guess = gets.chomp
+    record_guess(guess)
+    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
+    puts "Question: #{deck.cards[guess_count].question}"
+    guess = gets.chomp
+    record_guess(guess)
+    puts "****** Game over! ******"
+    puts "You had #{@number_correct} correct guesses out of #{guess_count} for a score of #{percent_correct}%."
   end
 
-  def record_guess(guess)
+  def record_guess(response)
+    guess = Guess.new(response, current_card)
     @guesses << guess
-    case
-    when guess.feedback == "Correct!"
+    if guess.correct?
       @number_correct += 1
+      puts "Correct!"
     else
+      puts "Incorrect."
     end
   end
 
-  def number_correct
-    @number_correct
+  def current_card
+    deck.cards[@guesses.count]
   end
 
   def percent_correct
-    percent = @number_correct / @guesses.count.to_f
-    (percent * 100).to_i
+    ((@number_correct / @guesses.count.to_f) * 100).to_i
+  end
+
+  def guess_count
+    @guesses.count
   end
 
 end
