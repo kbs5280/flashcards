@@ -11,22 +11,13 @@ class Round
 
   def start
     puts "Welcome! You're playing with #{@deck.count} cards."
-    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
-    puts "Question: #{deck.cards[guess_count].question}"
-    guess = gets.chomp
-    record_guess(guess)
-    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
-    puts "Question: #{deck.cards[guess_count].question}"
-    guess = gets.chomp
-    record_guess(guess)
-    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
-    puts "Question: #{deck.cards[guess_count].question}"
-    guess = gets.chomp
-    record_guess(guess)
-    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
-    puts "Question: #{deck.cards[guess_count].question}"
-    guess = gets.chomp
-    record_guess(guess)
+    puts "__________________________________________________\n"
+    while current_card != nil
+      puts "This is card #{guesses.count + 1} out of #{@deck.count}"
+      puts "Question: #{deck.cards[guess_count].question}"
+      guess = gets.chomp
+      record_guess(guess)
+    end
     puts "****** Game over! ******"
     puts "You had #{@number_correct} correct guesses out of #{guess_count} for a score of #{percent_correct}%."
   end
