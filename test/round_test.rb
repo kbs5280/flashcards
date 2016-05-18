@@ -1,10 +1,8 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper.rb'
 require './lib/card.rb'
 require './lib/guess.rb'
 require './lib/deck.rb'
 require './lib/round.rb'
-require 'pry'
 
 class RoundTest < Minitest::Test
   attr_reader :card_1, :card_2, :deck, :round, :g1_incorrect, :g1_correct

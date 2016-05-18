@@ -11,12 +11,12 @@ class Guess
   end
 
   def correct?
-    @response.downcase == card.answer.downcase
+    response.downcase == card.answer.downcase
   end
 
   def feedback
     case
-    when correct? == true
+    when correct?
       "Correct!"
     else
       "Incorrect."

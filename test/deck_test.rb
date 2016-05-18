@@ -1,9 +1,7 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper.rb'
 require './lib/card.rb'
 require './lib/guess.rb'
 require './lib/deck.rb'
-require 'pry'
 
 class DeckTest < Minitest::Test
 

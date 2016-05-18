@@ -26,7 +26,7 @@ class Round
 
   def record_guess(response)
     guess = Guess.new(response, current_card)
-    @guesses << guess
+    guesses << guess
     case
     when guess.correct?
       @number_correct += 1
@@ -37,15 +37,15 @@ class Round
   end
 
   def current_card
-    deck.cards[@guesses.count]
+    deck.cards[guesses.count]
   end
 
   def percent_correct
-    ((@number_correct / @guesses.count.to_f) * 100).to_i
+    ((@number_correct / guesses.count.to_f) * 100).to_i
   end
 
   def guess_count
-    @guesses.count
+    guesses.count
   end
 
   #RESULTS
@@ -56,7 +56,7 @@ class Round
 
   def results
     results = []
-    @guesses.each do |guess|
+    guesses.each do |guess|
       results << guess.card.question
       results << guess.card.answer
       results << guess.response
@@ -68,14 +68,20 @@ class Round
   #MESSSAGES
 
   def welcome_message
-    puts "Welcome! You're playing with #{@deck.count} cards.\n__________________________________________________"
+    puts "Welcome! You're playing with #{deck.count} cards.\n__________________________________________________"
   end
 
   def game_play
-    puts "This is card #{guesses.count + 1} out of #{@deck.count}"
+    puts "This is card #{guesses.count + 1} out of #{deck.count}"
     puts "Question: #{deck.cards[guess_count].question}"
     guess = gets.chomp
-    record_guess(guess)
+      if guess.downcase == "hint"
+        puts "Hint: #{deck.cards[guess_count].hint}"
+        guess = gets.chomp
+        record_guess(guess)
+      else
+        record_guess(guess)
+      end
   end
 
   def closing_message

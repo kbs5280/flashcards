@@ -1,8 +1,6 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper.rb'
 require './lib/card.rb'
 require './lib/guess.rb'
-require 'pry'
 
 class GuessTest < Minitest::Test
 
@@ -19,7 +17,7 @@ class GuessTest < Minitest::Test
   def test_it_gets_an_incorrect_response
     card = Card.new("Which planet is closest to the sun?", "Mercury")
     guess = Guess.new("Saturn", card)
-    
+
     assert_equal card, guess.card
     assert_equal "Saturn", guess.response
     refute guess.correct?
