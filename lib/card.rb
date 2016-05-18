@@ -1,10 +1,10 @@
 class Card
   attr_reader :question,
-              :answer 
+              :answer
 
   def initialize (question, answer)
     @question = question
-    @answer = answer
+    @answer   = answer
   end
 
 end

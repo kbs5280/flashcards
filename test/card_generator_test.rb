@@ -14,7 +14,8 @@ class CardGeneratorTest < Minitest::Test
   def test_it_creates_new_cards
     filename = "cards.txt"
     gen = CardGenerator.new(filename)
-    #need a test here
+    assert_equal "10", gen.cards.first.answer
+    assert_equal "red panda", gen.cards[1].answer
   end
 
 end

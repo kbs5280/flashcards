@@ -11,7 +11,7 @@ class CardGenerator
     @split = @cards.split("\n").map do |card|
       card.split(",")
     end
-    @split.map do |card|
+    @result = @split.map do |card|
       Card.new(card[0], card[1])
     end
   end
