@@ -2,12 +2,11 @@
 
 ***
 
-* #### [Original Spec](https://github.com/turingschool/curriculum/blob/master/source/projects/flashcards.markdown)
+* [Original Spec](https://github.com/turingschool/curriculum/blob/master/source/projects/flashcards.markdown)
 
 ***
 
 ### How it Works
-
 <br>
 Flashcards is an interactive (REPL) question and answer game.
 <br>
@@ -16,7 +15,6 @@ Begin the game by entering:
 
 ```
 flashcard_runner.rb
-
 ```
 
 1. You will be prompted to choose a file containing a series of questions.
