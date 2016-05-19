@@ -19,7 +19,7 @@ class Round
       game_play
     end
     closing_message
-    # write
+    write
   end
 
   #EVALUATIONS
@@ -30,10 +30,8 @@ class Round
     case
     when guess.correct?
       @number_correct += 1
-      puts "Correct!"
-    else
-      puts "Incorrect."
     end
+    puts guess.feedback
   end
 
   def current_card
@@ -48,11 +46,15 @@ class Round
     guesses.count
   end
 
-  #RESULTS
+  # RESULTS
 
-  # def write
-  #   File.open("results-#{Time.now.strftime("%Y-%m-%e-%I:%M%p")}.txt", 'w') { |file| file.write(results) }
-  # end
+  def time
+    Time.now.strftime("%Y-%m-%e-%I:%M%p")
+  end
+
+  def write
+    File.open("results-#{time}.txt", 'w') { |file| file.write(results) }
+  end
 
   def results
     results = []

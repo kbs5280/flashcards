@@ -1,5 +1,4 @@
 require_relative 'card'
-require 'pry'
 
 class CardGenerator
 
@@ -8,10 +7,10 @@ class CardGenerator
   end
 
   def cards
-    @split = @cards.split("\n").map do |card|
+    split = @cards.split("\n").map do |card|
       card.split(",")
     end
-    @split.map do |card|
+    split.map do |card|
       Card.new(card[0], card[1], card[2])
     end
   end

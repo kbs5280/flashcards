@@ -6,7 +6,7 @@ class CardGeneratorTest < Minitest::Test
   def test_it_returns_an_array
     filename = "default.txt"
     gen = CardGenerator.new(filename)
-    assert_equal Array, gen.cards.class
+    assert_instance_of Array, gen.cards
   end
 
   def test_it_creates_new_cards

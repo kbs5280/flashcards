@@ -25,6 +25,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card
+    assert_instance_of Card, round.current_card
     assert_equal card_1, round.current_card
   end
 
@@ -47,7 +48,7 @@ class RoundTest < Minitest::Test
     assert_equal 1, round.number_correct
   end
 
-  def test_current_card_advances_with_correct_guess
+  def test_current_card_advances_with_guess
     round.record_guess(g1_correct)
 
     assert_equal card_2, round.current_card
@@ -56,6 +57,7 @@ class RoundTest < Minitest::Test
   def test_the_perecentage_of_correct_guesses
     round.record_guess(g1_correct)
     round.record_guess(g1_incorrect)
+
     assert_equal 1, round.number_correct
     assert_equal 50, round.percent_correct
   end

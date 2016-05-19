@@ -1,5 +1,3 @@
-require 'pry'
-
 class Guess
   attr_accessor :response,
                 :card

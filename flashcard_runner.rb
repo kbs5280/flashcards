@@ -2,7 +2,6 @@ require './lib/card.rb'
 require './lib/deck.rb'
 require './lib/round.rb'
 require './lib/card_generator.rb'
-require 'pry'
 
   def filename
     puts "Enter a filename to choose a set of questions:\n 1. default.txt\n 2. muppets.txt "
